@@ -11,8 +11,12 @@ import WebKit
 let urls = ["https://upload.wikimedia.org/wikipedia/commons/0/0a/Flag_of_Jamaica.svg",
             "https://upload.wikimedia.org/wikipedia/commons/9/99/Flag_of_Guyana.svg",
             "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg",
+            "https://upload.wikimedia.org/wikipedia/commons/5/52/Flag_of_%C3%85land.svg",
+            "https://upload.wikimedia.org/wikipedia/commons/6/6a/Flag_of_Zimbabwe.svg",
+            "https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_the_Taliban.svg",
             "https://www.apple.com",
-            "https://itp.nyu.edu"]
+            "https://itp.nyu.edu",
+]
 let url = urls[0];
 
 struct ContentView: View {
@@ -22,14 +26,19 @@ struct ContentView: View {
                 .background(Color(white: 0.9))
                 .foregroundStyle(Color(white: 0.8))
             // .foregroundColor(.init(hue: 0.1, saturation: 0.1, brightness: 0.4))
-            VStack {
+            List {
                 // Text("Hello")
                 // WebView(url: urls[0])
                 // .frame(width:400,height:200)
-                WebView(url: urls[1])
-                    .frame(width:380,height:240)
-                WebView(url: urls[2])
-                    .frame(width:300,height:220)
+                ForEach(0 ..< urls.count, id: \.self) { index in
+                    WebView(url: urls[index])
+                        .frame(width:380,height:240)
+                }
+//                WebView(url: urls[1])
+//                    .frame(width:380,height:240)
+//                WebView(url: urls[4])
+//                    .frame(width:380,height:220)
+
                 // .frame(maxWidth: 400)
                 // Text("Hello")
                 // WebView(url: url)
@@ -70,4 +79,7 @@ struct WebView : UIViewRepresentable {
 // https://developer.apple.com/forums/thread/117348
 
 // https://medium.com/devtechie/webview-in-swiftui-a9c283f29327
+
+// flag svg link source:
+// https://github.com/linssen/country-flag-icons/blob/master/countries.json
 
