@@ -27,5 +27,18 @@ select a random color from red, gold and green for text background color
 // Claude does not have the ability to run the code it generates yet.
 // Claude can make mistakes. Please double-check responses.
 
+>> to get resources into bundle
+Targets | Build Phases | Copy Bundle Resoures
++ add sketches
+
+https://developer.apple.com/documentation/webkit/wkwebview/loadfileurl(_:allowingreadaccessto:)
+loadFileURL(_:allowingReadAccessTo:)
+iOS 9.0+
+
+https://developer.apple.com/documentation/webkit/wkwebview/loadfilerequest(_:allowingreadaccessto:)
+loadFileRequest(_:allowingReadAccessTo:)
+iOS 15.0+
+
+
 ````
 

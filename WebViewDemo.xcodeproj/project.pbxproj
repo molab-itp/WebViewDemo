@@ -11,6 +11,7 @@
 		AB2CF35F29D365EE0035A1A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2CF35E29D365EE0035A1A3 /* ContentView.swift */; };
 		AB2CF36129D365F00035A1A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB2CF36029D365F00035A1A3 /* Assets.xcassets */; };
 		AB2CF36429D365F00035A1A3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB2CF36329D365F00035A1A3 /* Preview Assets.xcassets */; };
+		ABCD9AFF2E42A19C002DBBCC /* sketches in Resources */ = {isa = PBXBuildFile; fileRef = ABCD9AFE2E429439002DBBCC /* sketches */; };
 		ABE97CB32AFE8C26009A82C0 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = ABE97CB22AFE8C26009A82C0 /* README.md */; };
 /* End PBXBuildFile section */
 
@@ -130,6 +131,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABCD9AFF2E42A19C002DBBCC /* sketches in Resources */,
 				ABE97CB32AFE8C26009A82C0 /* README.md in Resources */,
 				AB2CF36429D365F00035A1A3 /* Preview Assets.xcassets in Resources */,
 				AB2CF36129D365F00035A1A3 /* Assets.xcassets in Resources */,

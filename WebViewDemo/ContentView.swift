@@ -29,10 +29,12 @@ let url = urls[0];
 struct ContentView: View {
   var body: some View {
     ZStack {
-      WebView(url: urls[0])
+//      let url =  Bundle.main.url(forResource: "sketches/shapes_random_pause_v22", withExtension: nil)
+      let url = URL(string: urls[0])
+      WebView(url: url)
       VStack {
         Spacer()
-        Text("Hello p5")
+        Text("Hello p5js")
           .padding(10)
 //          .background(Color.yellow)
           .background([Color.red, gold, Color.green].randomElement() ?? Color.red)
@@ -40,20 +42,25 @@ struct ContentView: View {
           .bold()
       }
     }
+    .onAppear() {
+      print("onAppear");
+      if let folderURL = Bundle.main.url(forResource: "sketches/shapes_random_pause_v22", withExtension: nil) {
+        print("Folder URL: \(folderURL)")
+      }
+    }
   }
 }
 
 struct WebView : UIViewRepresentable {
-  let url: String
+  let url: URL?
   func makeUIView(context: Context) -> WKWebView  {
     // frame does not appear to affect
     // return WKWebView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
     return WKWebView()
   }
   func updateUIView(_ uiView: WKWebView, context: Context) {
-    let nurl = URL(string: url)
-    guard let nurl = nurl else {
-      print("URL failed url", url)
+    guard let nurl = url else {
+      print("URL failed url", url ?? "")
       return;
     }
     uiView.load(URLRequest(url: nurl))
