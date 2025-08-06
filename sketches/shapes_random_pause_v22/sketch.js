@@ -26,7 +26,7 @@ function draw() {
   i = i + 1;
 }
 function init_vars() {
-  let p = 17;
+  let p = 5;
   w = Math.floor(width / p);
   // w = Math.round(width / p);
   h = w;

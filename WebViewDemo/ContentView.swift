@@ -11,6 +11,7 @@ import WebKit
 let gold = Color(red: 1.0, green: 0.84, blue: 0.0) // Custom gold color
 
 let urls = [
+  "sketches/shapes_random_pause_v22/index.html",
   "https://jht9629-nyu.github.io/p5mirror-jht9629-nyu/p5projects/shapes%20random%20pause%20v22-n0LYuXRmX/?v=1",
   "https://editor.p5js.org/jht9629-nyu/sketches/n0LYuXRmX",
   "https://jht9629-nyu.github.io/p5mirror-jht9629-nyu/p5projects/ims04-jht%20scroll%20color%20rate-2pxhnehBV/",
@@ -29,8 +30,9 @@ let urlStr = urls[0];
 struct ContentView: View {
   var body: some View {
     ZStack {
-      let url = URL(string: urlStr)
-      WebView(url: url, msg: urlStr)
+//      let url = URL(filePath: urlStr)
+      let url = Bundle.main.url(forResource:urlStr, withExtension: nil);
+      WebViewLocal(url: url, msg: urlStr)
       VStack {
         Spacer()
         Text("Hello p5js")
@@ -41,14 +43,37 @@ struct ContentView: View {
           .bold()
       }
     }
-    .onAppear() {
-      print("onAppear");
-      if let folderURL = Bundle.main.url(forResource: "sketches/shapes_random_pause_v22", withExtension: nil) {
-        print("Folder URL: \(folderURL)")
-      }
-    }
+//    .onAppear() {
+//      print("onAppear");
+//      if let folderURL = Bundle.main.url(forResource: "sketches/shapes_random_pause_v22", withExtension: nil) {
+//        print("Folder URL: \(folderURL)")
+//      }
+//    }
   }
 }
+
+struct WebViewLocal : UIViewRepresentable {
+  let url: URL?
+  let msg: String
+  func makeUIView(context: Context) -> WKWebView  {
+    // frame does not appear to affect
+    // return WKWebView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+    return WKWebView()
+  }
+  func updateUIView(_ uiView: WKWebView, context: Context) {
+//    print("WebViewLocal url", url!)
+    guard let nurl = url else {
+      print("URL failed", msg)
+      return;
+    }
+    print("WebViewLocal nurl", nurl)
+//    uiView.loadFileURL( nurl, allowingReadAccessTo: nurl.deletingLastPathComponent())
+    uiView.loadFileRequest(
+      URLRequest(url: nurl),
+      allowingReadAccessTo: nurl.deletingLastPathComponent())
+  }
+}
+
 
 struct WebView : UIViewRepresentable {
   let url: URL?
@@ -59,10 +84,12 @@ struct WebView : UIViewRepresentable {
     return WKWebView()
   }
   func updateUIView(_ uiView: WKWebView, context: Context) {
+    print("WebView update url", url ?? "")
     guard let nurl = url else {
       print("URL failed", msg)
       return;
     }
+    print("no url", msg)
     uiView.load(URLRequest(url: nurl))
   }
 }

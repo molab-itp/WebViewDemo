@@ -9,6 +9,13 @@ https://developer.apple.com/documentation/webkit/wkusercontentcontroller
 
 ```
 
+>>     <script src="p5.sound.min.js"></script>
+>> in index.html !!@ Fails
+
+>> sketches/shapes_random_pause_v22/index.html
+  let url = Bundle.main.url(forResource:urlStr, withExtension: nil);
+
+# --
 // https://editor.p5js.org/jht9629-nyu/sketches/2pxhnehBV
 // ims04-jht scroll color rate
  // script error on full screen
@@ -31,14 +38,13 @@ select a random color from red, gold and green for text background color
 Targets | Build Phases | Copy Bundle Resoures
 + add sketches
 
-https://developer.apple.com/documentation/webkit/wkwebview/loadfileurl(_:allowingreadaccessto:)
-loadFileURL(_:allowingReadAccessTo:)
-iOS 9.0+
-
 https://developer.apple.com/documentation/webkit/wkwebview/loadfilerequest(_:allowingreadaccessto:)
 loadFileRequest(_:allowingReadAccessTo:)
 iOS 15.0+
 
+https://developer.apple.com/documentation/webkit/wkwebview/loadfileurl(_:allowingreadaccessto:)
+loadFileURL(_:allowingReadAccessTo:)
+iOS 9.0+
 
 ````
 
